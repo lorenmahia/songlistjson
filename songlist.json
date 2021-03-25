@@ -1,0 +1,73 @@
+[
+{
+    "artist": "Russ",
+    "title": "Need a minute",
+    "genre":[ "Hip-Hop", "Pop"],
+    "year": "2020"
+},
+
+{
+    "artist": "Lana Del Ray",
+    "title": "White Dress",
+    "genre":["Pop"],
+    "year": "201"
+},
+
+{
+    "artist": "Michael Ray",
+    "title": "Whiskey and Rain",
+    "genre":[ "Country", "Soulful"],
+    "year": "2021"
+},
+
+{
+    "artist": "Chronixx",
+    "title": "Likes",
+    "genre":[ "Reggae"],
+    "year": "2018"
+},
+
+{
+    "artist": "Lil-Baby",
+    "title": "Sumn to Prove",
+    "genre":[ "Hip-Hop"],
+    "year": "2020"
+},
+
+{
+    "artist": "Gunna ",
+    "title": "Dollaz on my head",
+    "genre":[ "Hip-Hop", "Rap"],
+    "year": "2020"
+},
+
+{
+    "artist": "Drake",
+    "title": "What's Next",
+    "genre":[ "Hip-Hop", "Pop"],
+    "year": "2021"
+},
+
+{
+    "artist": "Bruno Mars",
+    "title": "Leave the Door Open",
+    "genre":[ "Pop", "Soulful"],
+    "year": "2021"
+},
+
+{
+    "artist": "Kali Uchis ",
+    "title": "Telepatia",
+    "genre":[ "Electric", "Pop"],
+    "year": "2021"
+},
+
+{
+    "artist": "Margan Wallen",
+    "title": "Wasted on You",
+    "genre":[ "Country", "Pop", "Soulful"],
+    "year": "2021"
+}
+
+
+]
