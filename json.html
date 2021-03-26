@@ -5,31 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Json by Loren</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    
     <script language = "javascript">
-        function loader(){
-            const data = require("/songlist.json");
-            alert(data);
-            document.getElementById("display").innerHTML = data;
-        // request = new XMLHttpRequest();
-        // document.getElementById("display").innerHTML = "start";
-        // request.open("GET", "./songlist.json", true);
-        // request.onreadystatechange = function(){
-        //     if(request.readyState = 4 && request.status == 200)
-        //     {
-        //         data = request.responseText;
-        //         alert(data);
-        //         document.getElementById("display").innerHTML = data;
-        //     }
-        // }
-        // request.send();   
-    }
-     window.open(loader);
+        $(document).ready(function(){
+            $.getJSON("songlist.json", function(data){
+                //displaying the songlist at first 
+                songlist = JSON.stringify(data);
+                document.getElementById('display').innerHTML = songlist + "<br>";
+                $.each(data, function(key,value){
+                    $("table").append("<tr><td>" + value.artist + "<td>><tr>");
+                });
+            });
+        });
+   
     </script>
    <div>
        <p id="display"></p>
    </div>
+    <table>
+        <tr>
+            <td> Song </td>
+        </tr>
+    </table>
 </body>
 </html>
