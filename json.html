@@ -10,25 +10,74 @@
 </head>
 <body>
     <script language = "javascript">
+        var genre = ["Hip-Hop","Pop","Country","Soulful","Reggae","Electric"];
+        var index;
+        var orig;
         $(document).ready(function(){
-            $.getJSON("songlist.json", function(data){
-                //displaying the songlist at first 
-                songlist = JSON.stringify(data);
-                document.getElementById('display').innerHTML = songlist + "<br>";
-                $.each(data, function(key,value){
-                    $("table").append("<tr><td>" + value.artist + "<td>><tr>");
-                });
+            $("select").change(function(){
+                        index = this.selectedIndex;
+                        place = "";
+                        for(var i = 0; i < 10; i++){
+                            for(var j = 0; j < 3; j++){
+                                if(orig[i].genre[j] == genre[index]){
+                                    alert(orig[i].title);
+                                    place += "<tr>";
+                                    place += "<td>" + orig[i].title + "<td>";
+                                }
+                            }
+                        }
+                        document.getElementById("filt").innerHTML = place;
+            });
+            $.getJSON("https://raw.githubusercontent.com/lorenmahia/songlistjson/main/songlist.json", function(data){
+                songs = JSON.stringify(data);
+                orig = data;
+                $("#display").html(songs);
+                var temp = "";
+                //for loop to fill table
+                for(var i = 0; i < 10; i++){
+                    temp += "<tr>";
+                    temp += "<td>" + data[i].artist + "</td>"
+                    temp += "<td>" + data[i].title + "</td>"
+                    temp += "<td>" + data[i].genre + "</td>"
+                    temp += "<td>" + data[i].year + "</td></tr>"
+                }
+                //end of for loop 
+                document.getElementById("tableu").innerHTML = temp;
+                //for loop too add select element
+                var content = "";
+                for(var i = 0; i < 6; i++){
+                    content += "<option value = '" + genre[i] + "'>" + genre[i];
+                }
+                content += "</option>";
+                document.getElementById("arr").innerHTML = content;
             });
         });
-   
     </script>
+    
    <div>
+       <h1>Songlist Displayed as a raw string</h1>
        <p id="display"></p>
    </div>
-    <table>
-        <tr>
-            <td> Song </td>
-        </tr>
-    </table>
+     <div>
+         <h1>Songlist Displayed as a Table</h1>
+        <table id="tableu">
+        </table>
+     </div>
+     <br>
+     <div>
+         <form >
+             <label for="genre">Select Genre</label>
+             <select name="arr" id="arr">
+             </select>
+             <br>
+         </form>
+         <button id="btn">Filter</button>
+     </div>
+     <div>
+         <h1>Filtered Songlist </h1>
+         <table id="filt">
+        </table>
+     </div>
+    
 </body>
 </html>
